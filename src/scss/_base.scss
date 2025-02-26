@@ -1,0 +1,60 @@
+/// Estilos globales del cuerpo de la página
+/// @group Global
+body {
+  font-family: $font-family;
+  font-size: $base-font-size;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/// Estilos del encabezado de la página
+/// @group Layout
+header {
+  background-color: $primary-color;
+  color: white;
+  @include flex-center;
+}
+
+/// Estilos de la navegación dentro del encabezado
+/// @group Layout
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+/// Estilos de los enlaces dentro de la navegación
+/// @group Layout
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+/// Estilos para los títulos principales (h1, h2)
+/// @group Tipografía
+h1, h2 {
+  font-family: $heading-font-family;
+}
+
+/// Estilos generales para las secciones de contenido
+/// @group Layout
+section {
+  padding: $spacing-unit * 2;
+}
+
+/// Estilos del pie de página
+/// @group Layout
+footer {
+  background-color: $secondary-color;
+  color: white;
+  text-align: center;
+  padding: $spacing-unit;
+}
+
+/// Estilos del contenedor principal
+/// @group Layout
+main {
+  margin-top: $header-height + ($spacing-unit * 2); 
+}

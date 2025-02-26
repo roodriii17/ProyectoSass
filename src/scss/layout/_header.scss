@@ -1,0 +1,103 @@
+/// Estilos para el header de la página
+/// @group Header
+header {
+  background-color: $primary-color;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  padding: 10px 50px;
+  transition: top 0.3s ease-in-out;
+
+  /// Contenedor del logo dentro del header
+  /// @group Header
+  .logo {
+    flex: 1;
+    margin-right: 80px;
+
+    /// Imagen del logo
+    img {
+      height: 40px;
+    }
+  }
+
+  /// Lista de enlaces de navegación
+  /// @group Navegación
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    justify-content: flex-end;
+
+    /// Enlaces de navegación
+    /// @group Navegación
+    a {
+      text-decoration: none;
+      color: white;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.3s ease-in-out;
+
+      &:hover {
+        color: $accent-color;
+      }
+    }
+
+    /// Separador entre elementos de la navegación
+    .separator {
+      color: white;
+      font-size: 14px;
+    }
+  }
+
+  /// Botón de menú hamburguesa para móviles
+  /// @group Navegación
+  .menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: white;
+  }
+}
+
+/// Media query para adaptar el header en dispositivos móviles
+/// @group Responsive
+@media (max-width: 768px) {
+  header {
+    padding: 10px 20px;
+
+    /// Navegación en versión móvil
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      text-align: center;
+      padding: 20px 0;
+      gap: 20px;
+
+      /// Clase para mostrar el menú cuando está activo
+      &.active {
+        display: flex;
+      }
+    }
+
+    /// Mostrar botón hamburguesa en móvil
+    .menu-toggle {
+      display: block;
+    }
+  }
+}

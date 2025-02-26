@@ -1,0 +1,119 @@
+/// # Estilos Globales
+/// Define estilos generales y reseteo de márgenes y paddings.
+/// @group Global
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/// Asegura que `html` y `body` ocupen el ancho total y evita desplazamiento horizontal.
+/// @group Global
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; // Elimina el scroll horizontal
+}
+
+/// Define `body` como contenedor relativo para elementos posicionados absolutamente.
+/// @group Global
+body {
+  position: relative;
+}
+
+/// # Sección Hero (Carrusel)
+/// Contiene el carrusel principal con imágenes a pantalla completa.
+/// @group Hero
+#hero {
+  width: 100%;
+  height: 100vh; // Ocupa toda la altura de la ventana
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+
+  /// Asegura que las diapositivas ocupen toda la sección.
+  .carousel-inner, .carousel-item {
+    width: 100%;
+    height: 100%;
+  }
+
+  /// Imágenes dentro del carrusel con ajuste al contenedor.
+  .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /// Texto superpuesto en las diapositivas del carrusel.
+  .carousel-caption {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: get-color(white);
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 1.8rem;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+
+    /// Color del título dentro del `carousel-caption`.
+    h2 {
+      color: get-color(white);
+    }
+
+    /// Efecto hover en la caja de texto del carrusel.
+    &:hover {
+      opacity: 0.9;
+      transform: translateX(-50%) translateY(-5px);
+    }
+  }
+}
+
+/// # Controles del Carrusel
+/// Ajusta la visibilidad de los controles de navegación.
+/// @group Hero
+.carousel-control-prev, .carousel-control-next {
+  z-index: 10;
+}
+
+/// # Encabezado (Header)
+/// Barra de navegación fija en la parte superior de la página.
+/// @group Header
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1030;
+  transition: transform 0.3s ease;
+
+  /// Oculta el encabezado al hacer scroll hacia abajo.
+  &.hide-header {
+    transform: translateY(-100%);
+  }
+}
+
+/// # Contenido Principal
+/// Define la estructura del contenido debajo del header.
+/// @group Main
+main {
+  position: relative;
+  z-index: 1;
+}
+
+/// # Estilos Responsivos
+/// Ajustes de diseño para pantallas pequeñas.
+/// @group Responsive
+@media (max-width: 768px) {
+  #hero .carousel-caption {
+    bottom: 10%;
+    font-size: 1.4rem;
+    padding: 10px 20px;
+  }
+}

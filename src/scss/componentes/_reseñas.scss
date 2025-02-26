@@ -1,0 +1,155 @@
+/// # Sección de Reseñas
+/// Contiene un carrusel con opiniones de usuarios.
+/// @group Reseñas
+#resenas {
+  background: $background-color2;
+  padding: $spacing-unit * 7.5 0;
+  text-align: center;
+
+  /// Título de la sección de reseñas.
+  h2 {
+    font-family: sans-serif;
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 40px;
+    font-weight: 600;
+    position: relative;
+
+    /// Línea decorativa debajo del título.
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 2px;
+      background: #4a90e2;
+    }
+  } 
+}
+
+/// # Carrusel de reseñas
+/// Permite desplazamiento horizontal con scroll.
+/// @group Reseñas
+.resenas-slider {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: $spacing-unit * 1.875;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: $spacing-unit * 2.5;
+  scrollbar-width: none;
+  max-width: 1300px;
+  margin: 0 auto;
+
+  /// Oculta la barra de desplazamiento en navegadores WebKit.
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  /// # Tarjeta de reseña
+  /// Muestra información de un usuario y su opinión.
+  /// @group Reseñas
+  .resena-card {
+    flex: 0 0 280px;
+    scroll-snap-align: center;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    padding: $spacing-unit * 2.5;
+    border-radius: 8px;
+    text-align: left;
+    transition: transform 0.2s ease;
+
+    /// Efecto de elevación al pasar el cursor.
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    /// Texto de la reseña.
+    .resena-texto {
+      font-size: 0.95em;
+      color: darken($secondary-color, 20%);
+      line-height: 1.5;
+      margin-bottom: $spacing-unit * 1.875;
+      font-family: $font-family;
+    }
+
+    /// Información del autor de la reseña.
+    .resena-autor {
+      display: flex;
+      align-items: center;
+      gap: $spacing-unit * 1.25;
+      border-top: 1px solid #eee;
+      padding-top: $spacing-unit * 1.875;
+
+      /// Imagen de perfil del autor.
+      .avatar {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      /// Datos del autor (nombre, estrellas, comentario).
+      .autor-info {
+        display: flex;
+        flex-direction: column;
+
+        /// Nombre del autor.
+        .nombre {
+          font-size: 1em;
+          font-weight: 600;
+          color: $primary-color;
+        }
+
+        /// Valoración con estrellas.
+        .rating {
+          color: #FFD700;
+          font-size: 0.95em;
+          letter-spacing: 1px;
+        }
+
+        /// Comentario corto debajo del nombre.
+        .comentario-corto {
+          font-size: 0.85em;
+          color: lighten($secondary-color, 20%);
+          margin-top: 3px;
+        }
+      }
+    }
+  }
+}
+
+/// # Media queries para adaptar el carrusel en diferentes dispositivos.
+/// @group Reseñas
+@media (min-width: 1200px) {
+  .resenas-slider {
+    justify-content: center;
+
+    /// Tarjeta en pantallas grandes.
+    .resena-card {
+      flex: 0 0 calc(25% - $spacing-unit * 1.875);
+      min-width: 250px;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .resenas-slider {
+    /// Tarjeta en tablets.
+    .resena-card {
+      flex: 0 0 calc(25% - $spacing-unit * 1.875);
+      min-width: 220px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .resenas-slider {
+    /// Tarjeta en móviles.
+    .resena-card {
+      flex: 0 0 85%;
+    }
+  }
+}

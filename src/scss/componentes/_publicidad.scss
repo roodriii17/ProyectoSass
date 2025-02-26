@@ -1,0 +1,129 @@
+/// Estilos para la sección de publicidad
+/// @group Publicidad
+#publicidad {
+    background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+    position: relative;
+}
+
+/// Contenedor principal de la sección
+/// @group Publicidad
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/// Título de la sección
+/// @group Publicidad
+.section-title {
+    font-family: 'Arial', sans-serif;
+    font-size: 2.8em;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/// Eslogan de la sección
+/// @group Publicidad
+.eslogan {
+    font-size: 1.5em;
+    font-style: italic;
+    font-weight: 500;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+/// Banner de publicidad con imagen
+/// @group Publicidad
+.publicidad-banner {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/// Imagen dentro del banner de publicidad
+/// @group Publicidad
+.publicidad-banner img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.5s ease-in-out;
+}
+
+/// Efecto de zoom en la imagen al hacer hover
+/// @group Publicidad
+.publicidad-banner:hover img {
+    transform: scale(1.1);
+}
+
+/// Capa superpuesta en el banner con información adicional
+/// @group Publicidad
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.4s ease-in-out, transform 0.3s ease-in-out;
+    padding: 30px;
+}
+
+/// Título dentro del overlay
+/// @group Publicidad
+.overlay h3 {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/// Texto dentro del overlay
+/// @group Publicidad
+.overlay p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/// Botón dentro del banner de publicidad
+/// @group Publicidad
+.custom-button {
+    background: #3498db;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/// Efecto hover del botón
+/// @group Publicidad
+.custom-button:hover {
+    background: #2980b9;
+    transform: scale(1.1);
+}
+
+/// Efecto de aparición de la capa superpuesta en hover
+/// @group Publicidad
+.publicidad-banner:hover .overlay {
+    opacity: 1;
+}

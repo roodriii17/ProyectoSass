@@ -1,0 +1,106 @@
+/// # Sección de Categorías
+/// Contiene un grid de tarjetas con diferentes categorías de productos o servicios.
+/// @group Categorías
+#categorias {
+  background: $background-color;
+  padding: 60px 0;
+  text-align: center;
+
+  /// Contenedor principal para la sección.
+  .main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /// Título de la sección de categorías.
+  h2 {
+    font-family: sans-serif;
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 40px;
+    font-weight: 600;
+    position: relative;
+
+    /// Línea decorativa debajo del título.
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 2px;
+      background: #4a90e2;
+    }
+  }
+
+  /// # Grid de Categorías
+  /// Contenedor de las tarjetas de categorías, con distribución flexible.
+  /// @group Categorías
+  .categorias-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  /// # Tarjeta de Categoría
+  /// Cada tarjeta representa una categoría con imagen y título.
+  /// @group Categorías
+  .categoria-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 250px;
+    position: relative;
+
+    /// Efecto hover: eleva la tarjeta y aumenta la sombra.
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    /// Imagen dentro de la tarjeta.
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 50%;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    /// Cuerpo de la tarjeta con contenido adicional.
+    .categoria-body {
+      padding: 20px;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    /// Efecto hover en la imagen (oscurece y aumenta tamaño).
+    &:hover img {
+      opacity: 0.3;
+      transform: scale(1.1);
+    }
+
+    /// Efecto hover en el contenido de la tarjeta.
+    &:hover .categoria-body {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    /// Título de la categoría dentro de la tarjeta.
+    .categoria-title {
+      font-size: 1.5em;
+      color: #333;
+      margin: 0;
+      font-weight: 600;
+    }
+  }
+}
