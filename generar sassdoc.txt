@@ -1,0 +1,3 @@
+generar sassdoc
+
+npx sassdoc scss/ --dest sassdocs --verbose

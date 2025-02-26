@@ -1,0 +1,15 @@
+{
+  "name": "proyectosass",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "watch": "sass -w scss/style.scss css/style.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "gulp": "^5.0.0"
+  }
+}
